@@ -7,6 +7,15 @@
 
 import UIKit
 
+enum LinkView: String {
+    case tokyoViewURL = "https://picfiles.alphacoders.com/173/thumb-1920-173749.png"
+    case adventureViewsURL = "https://static.zerochan.net/Eight.Generals.full.1549619.jpg"
+    case chihiroViewURL = "https://i.pinimg.com/736x/e6/27/ba/e627ba6bcbd92378304b8c99c49b23fe.jpg"
+    case pokemonViewURL = "https://www.thequiz.com/wordpress/wp-content/uploads/2017/05/landscape-1456482902-pokemon.jpg"
+    case pikachuViewURL = "https://i.pinimg.com/736x/ec/d6/19/ecd61981c067f0710844ab6774dd76e2.jpg"
+    case godzillaViewURL = "https://i.pinimg.com/736x/0a/ec/d0/0aecd09efcb71b4d2514037c18d421af--kaiju-godzilla-artwork.jpg"
+}
+
 enum Link: String {
     case tokyoURL = "https://kitsu.io/api/edge/anime?filter[text]=tokyo"
     case adventuresURL = "https://kitsu.io/api/edge/anime?filter[text]=adventures"
