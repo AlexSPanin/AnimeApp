@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum LinkView: String {
+enum LinkView: String, CaseIterable {
     case tokyoViewURL = "https://picfiles.alphacoders.com/173/thumb-1920-173749.png"
     case adventureViewsURL = "https://static.zerochan.net/Eight.Generals.full.1549619.jpg"
     case chihiroViewURL = "https://i.pinimg.com/736x/e6/27/ba/e627ba6bcbd92378304b8c99c49b23fe.jpg"
@@ -37,8 +37,17 @@ enum TypeAction: String, CaseIterable {
 class TypeCollectionViewController: UICollectionViewController {
     
     private let typeAction = TypeAction.allCases
+    private let linkAction = LinkView.allCases
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
    
     // MARK: UICollectionViewDataSource
 
@@ -48,7 +57,19 @@ class TypeCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewAnime", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewAnime", for: indexPath) as! TypeAnimeCell
+        
+        cell.typeActionView.alpha = 0.5
+        cell.typeActionLabel.text = typeAction[indexPath.item].rawValue
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: self.linkAction[indexPath.item].rawValue ) else { return }
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                cell.typeActionView.image = UIImage(data: imageData)
+            }
+        }
+        
     
         // Configure the cell
     

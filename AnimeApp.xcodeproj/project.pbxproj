@@ -14,6 +14,7 @@
 		E20139F627935A6500DA2B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20139F427935A6500DA2B71 /* LaunchScreen.storyboard */; };
 		E2013A0327935EBA00DA2B71 /* AnimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2013A0227935EBA00DA2B71 /* AnimeTableViewController.swift */; };
 		E2013A0527935F1400DA2B71 /* TypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */; };
+		E25AD93F27936D0400F737B3 /* TypeAnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E20139F727935A6500DA2B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2013A0227935EBA00DA2B71 /* AnimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewController.swift; sourceTree = "<group>"; };
 		E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewController.swift; sourceTree = "<group>"; };
+		E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAnimeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */,
 				E2013A0227935EBA00DA2B71 /* AnimeTableViewController.swift */,
+				E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				E2013A0527935F1400DA2B71 /* TypeCollectionViewController.swift in Sources */,
 				E20139EA27935A6400DA2B71 /* AppDelegate.swift in Sources */,
+				E25AD93F27936D0400F737B3 /* TypeAnimeCell.swift in Sources */,
 				E2013A0327935EBA00DA2B71 /* AnimeTableViewController.swift in Sources */,
 				E20139EC27935A6400DA2B71 /* SceneDelegate.swift in Sources */,
 			);
