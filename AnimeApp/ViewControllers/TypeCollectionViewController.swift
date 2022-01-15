@@ -7,6 +7,24 @@
 
 import UIKit
 
+enum Link: String {
+    case tokyoURL = "https://kitsu.io/api/edge/anime?filter[text]=tokyo"
+    case adventuresURL = "https://kitsu.io/api/edge/anime?filter[text]=adventures"
+    case chihiroURL = "https://kitsu.io/api/edge/anime?filter[text]=chihiro"
+    case pokemonURL = "https://kitsu.io/api/edge/anime?filter[text]=pokemon"
+    case pikachuURL = "https://kitsu.io/api/edge/anime?filter[text]=pikachu"
+    case godzillaURL = "https://kitsu.io/api/edge/anime?filter[text]=godzilla"
+}
+
+enum TypeAction: String, CaseIterable {
+    case tokyo = "Tokyo"
+    case adventures = "Adventures"
+    case chihiro = "Chihiro"
+    case pokemon = "Pokemon"
+    case pikachu = "Pikachu"
+    case godzilla = "Godzilla"
+}
+
 private let reuseIdentifier = "Cell"
 
 class TypeCollectionViewController: UICollectionViewController {
