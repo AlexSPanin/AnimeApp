@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--Choose an anime type-->
         <scene sceneID="fg3-Db-3ea">
             <objects>
-                <collectionViewController storyboardIdentifier="Anime Type" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ADL-pN-Ko1" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="Anime Type" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ADL-pN-Ko1" customClass="TypeCollectionViewController" customModule="AnimeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WMs-Vr-87E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                             <outlet property="delegate" destination="ADL-pN-Ko1" id="IS9-dh-q8q"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="8YK-lb-759"/>
+                    <navigationItem key="navigationItem" title="Choose an anime type" id="8YK-lb-759"/>
                     <connections>
                         <segue destination="Obo-fT-SpB" kind="show" identifier="showAnime" id="95b-Us-BFr"/>
                     </connections>
@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-228" y="112"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Anime Table View Controller-->
         <scene sceneID="U9A-JV-Ub8">
             <objects>
-                <tableViewController id="Obo-fT-SpB" sceneMemberID="viewController">
+                <tableViewController id="Obo-fT-SpB" customClass="AnimeTableViewController" customModule="AnimeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="skz-oC-RSN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
