@@ -70,8 +70,8 @@
 		E20139FD27935A6E00DA2B71 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E2013A0227935EBA00DA2B71 /* AnimeTableViewController.swift */,
 				E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */,
+				E2013A0227935EBA00DA2B71 /* AnimeTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
