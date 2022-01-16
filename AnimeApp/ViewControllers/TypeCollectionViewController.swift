@@ -41,24 +41,22 @@ class TypeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-   
+    
     // MARK: UICollectionViewDataSource
-
-   
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         typeAction.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewAnime", for: indexPath) as! TypeAnimeCell
-        
         
         cell.typeActionLabel.text = typeAction[indexPath.item].rawValue
         
@@ -69,42 +67,72 @@ class TypeCollectionViewController: UICollectionViewController {
                 cell.typeActionView.image = UIImage(data: imageData)
             }
         }
-        
-    
-        // Configure the cell
-    
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    // MARK: UICollectionViewDelegate
+    
+    override func collectionView(_ colletionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let typeAction = typeAction[indexPath.item]
+        actionViewPressed(typeAction.rawValue)
+        performSegue(withIdentifier: "showAnime", sender: nil)
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let animeVC = segue.destination as! AnimeTableViewController
+            animeVC.fetchCourses()
+        }
+    }
 }
+
+// MARK - Private Metod
+
+extension TypeCollectionViewController {
+    
+    private func successAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(
+                title: "Success",
+                message: "You can see the results in the Debug aria",
+                preferredStyle: .alert
+            )
+            
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func failedAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(
+                title: "Failed",
+                message: "You can see error in the Debug aria",
+                preferredStyle: .alert
+            )
+            
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
+    }
+    private func actionViewPressed(_ sender: String) {
+        guard let url = URL(string: sender) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error")
+                return
+            }
+            do {
+                let anime = try JSONDecoder().decode(Anime.self, from: data)
+                self.successAlert()
+                print(anime)
+            } catch {
+                self.failedAlert()
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
+}
+    
