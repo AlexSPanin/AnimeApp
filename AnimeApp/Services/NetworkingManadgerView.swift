@@ -13,7 +13,6 @@ class NetworkingManadgerView {
     private init() {}
     
     func fetchImageView(url: String, complition: @escaping(_ image: UIImage) -> Void) {
-        
         guard let url = URL(string: url) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -26,7 +25,6 @@ class NetworkingManadgerView {
             DispatchQueue.main.async {
                 complition(image)
             }
-
         }.resume()
     }
 }

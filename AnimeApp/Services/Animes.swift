@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Anime: Decodable {
-    let data: [Data]?
+struct Animes: Decodable {
+    let data: [Anime]?
 }
 
-struct Data: Decodable {
+struct Anime: Decodable {
     let attributes: Attributes?
     
 }
@@ -19,11 +19,11 @@ struct Data: Decodable {
 struct Attributes: Decodable {
     let slug: String?
     let synopsis: String?
-    let userCount: Int
-    let favoritesCount: Int
+    let userCount: Int?
+    let favoritesCount: Int?
     let posterImage: PosterImage?
 }
 
 struct PosterImage: Decodable {
-    let original: String?
+    let tiny: String?
 }
