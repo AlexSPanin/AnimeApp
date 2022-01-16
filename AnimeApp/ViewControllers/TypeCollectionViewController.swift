@@ -59,7 +59,7 @@ class TypeCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewAnime", for: indexPath) as! TypeAnimeCell
         
-        cell.typeActionView.alpha = 0.5
+        
         cell.typeActionLabel.text = typeAction[indexPath.item].rawValue
         
         DispatchQueue.global().async {
