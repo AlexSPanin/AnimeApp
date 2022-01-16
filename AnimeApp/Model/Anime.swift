@@ -8,9 +8,22 @@
 import Foundation
 
 struct Anime: Decodable {
+    let data: [Data]?
+}
+
+struct Data: Decodable {
+    let attributes: Attributes?
+    
+}
+
+struct Attributes: Decodable {
     let slug: String?
     let synopsis: String?
-    let tiny: String?
-    let large: String?
-    let medium: String?
+    let userCount: Int
+    let favoritesCount: Int
+    let posterImage: PosterImage?
+}
+
+struct PosterImage: Decodable {
+    let original: String?
 }

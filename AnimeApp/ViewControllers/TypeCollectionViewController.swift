@@ -16,7 +16,7 @@ enum LinkView: String, CaseIterable {
     case godzillaViewURL = "https://i.pinimg.com/736x/0a/ec/d0/0aecd09efcb71b4d2514037c18d421af--kaiju-godzilla-artwork.jpg"
 }
 
-enum Link: String {
+enum Link: String, CaseIterable {
     case tokyoURL = "https://kitsu.io/api/edge/anime?filter[text]=tokyo"
     case adventuresURL = "https://kitsu.io/api/edge/anime?filter[text]=adventures"
     case chihiroURL = "https://kitsu.io/api/edge/anime?filter[text]=chihiro"
@@ -37,17 +37,8 @@ enum TypeAction: String, CaseIterable {
 class TypeCollectionViewController: UICollectionViewController {
     
     private let typeAction = TypeAction.allCases
-    private let linkAction = LinkView.allCases
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+    private let linkViewAction = LinkView.allCases
+    private let linkAction = Link.allCases
     
     // MARK: UICollectionViewDataSource
     
@@ -57,82 +48,64 @@ class TypeCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewAnime", for: indexPath) as! TypeAnimeCell
+        let url = linkViewAction[indexPath.item].rawValue
+        
+        NetworkingManadgerView.shared.fetchImageView(url: url) { image in
+            cell.typeActionView.image = image
+        }
         
         cell.typeActionLabel.text = typeAction[indexPath.item].rawValue
         
-        DispatchQueue.global().async {
-            guard let url = URL(string: self.linkAction[indexPath.item].rawValue ) else { return }
-            guard let imageData = try? Data(contentsOf: url) else { return }
-            DispatchQueue.main.async {
-                cell.typeActionView.image = UIImage(data: imageData)
-            }
-        }
         return cell
     }
     
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ colletionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let typeAction = typeAction[indexPath.item]
-        actionViewPressed(typeAction.rawValue)
-        performSegue(withIdentifier: "showAnime", sender: nil)
+        let url = linkAction[indexPath.item].rawValue
+        performSegue(withIdentifier: "showAnime", sender: url)
     }
     
+    
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let animeVC = segue.destination as! AnimeTableViewController
-            animeVC.fetchCourses()
-        }
+        let animeVC = segue.destination as! AnimeTableViewController
+        guard let url = sender as? String else { return }
+        animeVC.fetchAnimes(url)
     }
 }
 
 // MARK - Private Metod
 
-extension TypeCollectionViewController {
-    
-    private func successAlert() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(
-                title: "Success",
-                message: "You can see the results in the Debug aria",
-                preferredStyle: .alert
-            )
-            
-            let okAction = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
-        }
-    }
-    
-    private func failedAlert() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(
-                title: "Failed",
-                message: "You can see error in the Debug aria",
-                preferredStyle: .alert
-            )
-            
-            let okAction = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
-        }
-    }
-    private func actionViewPressed(_ sender: String) {
-        guard let url = URL(string: sender) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error")
-                return
-            }
-            do {
-                let anime = try JSONDecoder().decode(Anime.self, from: data)
-                self.successAlert()
-                print(anime)
-            } catch {
-                self.failedAlert()
-                print(error.localizedDescription)
-            }
-        }.resume()
-    }
-}
-    
+//extension TypeCollectionViewController {
+//
+//    private func successAlert() {
+//        DispatchQueue.main.async {
+//            let alert = UIAlertController(
+//                title: "Success",
+//                message: "You can see the results in the Debug aria",
+//                preferredStyle: .alert
+//            )
+//
+//            let okAction = UIAlertAction(title: "OK", style: .default)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true)
+//        }
+//    }
+//
+//    private func failedAlert() {
+//        DispatchQueue.main.async {
+//            let alert = UIAlertController(
+//                title: "Failed",
+//                message: "You can see error in the Debug aria",
+//                preferredStyle: .alert
+//            )
+//
+//            let okAction = UIAlertAction(title: "OK", style: .default)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true)
+//        }
+//    }
+//}
+//

@@ -16,7 +16,6 @@
 		E2013A0527935F1400DA2B71 /* TypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */; };
 		E25AD93F27936D0400F737B3 /* TypeAnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */; };
 		E2B5271C27942624000F2E1C /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5271B27942624000F2E1C /* Anime.swift */; };
-		E2B5271E279432AA000F2E1C /* NetworkingManadgerAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5271D279432AA000F2E1C /* NetworkingManadgerAnime.swift */; };
 		E2B52720279432C3000F2E1C /* NetworkingManadgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewController.swift; sourceTree = "<group>"; };
 		E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAnimeCell.swift; sourceTree = "<group>"; };
 		E2B5271B27942624000F2E1C /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
-		E2B5271D279432AA000F2E1C /* NetworkingManadgerAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManadgerAnime.swift; sourceTree = "<group>"; };
 		E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManadgerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				E2B5271B27942624000F2E1C /* Anime.swift */,
-				E2B5271D279432AA000F2E1C /* NetworkingManadgerAnime.swift */,
 				E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */,
 			);
 			path = Model;
@@ -200,7 +197,6 @@
 				E25AD93F27936D0400F737B3 /* TypeAnimeCell.swift in Sources */,
 				E2013A0327935EBA00DA2B71 /* AnimeTableViewController.swift in Sources */,
 				E20139EC27935A6400DA2B71 /* SceneDelegate.swift in Sources */,
-				E2B5271E279432AA000F2E1C /* NetworkingManadgerAnime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
