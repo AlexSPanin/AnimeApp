@@ -13,7 +13,7 @@ class AnimeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 256
+        tableView.rowHeight = 64
     }
     
     // MARK: - Table view data source
@@ -31,7 +31,19 @@ class AnimeTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let anime = animes?.data?[indexPath.row] else { return }
+       
+        let detailsVC = segue.destination as! DetailsViewController
+        detailsVC.anime = anime
+    }
 }
+
+
 
 // MARK: - Networking
 
