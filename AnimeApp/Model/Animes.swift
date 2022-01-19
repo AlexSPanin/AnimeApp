@@ -22,6 +22,14 @@ struct Attributes: Decodable {
     let userCount: Int?
     let favoritesCount: Int?
     let posterImage: PosterImage?
+    
+    var title: String {
+        """
+Title: \(slug ?? "")
+User Count: \(userCount ?? 0)
+Favorite User: \(favoritesCount ?? 0)
+"""
+    }
 }
 
 struct PosterImage: Decodable {

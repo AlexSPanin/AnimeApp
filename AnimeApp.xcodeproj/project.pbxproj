@@ -68,11 +68,13 @@
 		E20139E827935A6400DA2B71 /* AnimeApp */ = {
 			isa = PBXGroup;
 			children = (
-				E20139FE27935AA400DA2B71 /* Model */,
 				E20139FD27935A6E00DA2B71 /* ViewControllers */,
-				E2013A0127935B0B00DA2B71 /* StoryBoards */,
-				E2013A0027935AF400DA2B71 /* Files */,
+				E20139FE27935AA400DA2B71 /* Model */,
+				E2D70109279816D000855430 /* DataManager */,
 				E20139FF27935AB200DA2B71 /* Services */,
+				E2013A0127935B0B00DA2B71 /* StoryBoards */,
+				E2D7010A2798174B00855430 /* SupportingFiles */,
+				E2013A0027935AF400DA2B71 /* Files */,
 			);
 			path = AnimeApp;
 			sourceTree = "<group>";
@@ -91,7 +93,7 @@
 		E20139FE27935AA400DA2B71 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2B52727279495F3000F2E1C /* DataManager.swift */,
+				E2B5271B27942624000F2E1C /* Animes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,11 +101,7 @@
 		E20139FF27935AB200DA2B71 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E20139F727935A6500DA2B71 /* Info.plist */,
-				E2B5271B27942624000F2E1C /* Animes.swift */,
 				E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */,
-				E20139EB27935A6400DA2B71 /* SceneDelegate.swift */,
-				E20139E927935A6400DA2B71 /* AppDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -123,6 +121,24 @@
 				E20139F427935A6500DA2B71 /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		E2D70109279816D000855430 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				E2B52727279495F3000F2E1C /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		E2D7010A2798174B00855430 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E20139E927935A6400DA2B71 /* AppDelegate.swift */,
+				E20139EB27935A6400DA2B71 /* SceneDelegate.swift */,
+				E20139F727935A6500DA2B71 /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +371,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QD5349NP78;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnimeApp/Services/Info.plist;
+				INFOPLIST_FILE = AnimeApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -383,7 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QD5349NP78;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnimeApp/Services/Info.plist;
+				INFOPLIST_FILE = AnimeApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
