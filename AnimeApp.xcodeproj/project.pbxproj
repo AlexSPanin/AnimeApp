@@ -19,6 +19,7 @@
 		E2B52720279432C3000F2E1C /* NetworkingManadgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */; };
 		E2B5272627947F91000F2E1C /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5272527947F91000F2E1C /* AnimeTableViewCell.swift */; };
 		E2B52728279495F3000F2E1C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B52727279495F3000F2E1C /* DataManager.swift */; };
+		E2D7010C27981DA300855430 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D7010B27981DA300855430 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManadgerView.swift; sourceTree = "<group>"; };
 		E2B5272527947F91000F2E1C /* AnimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewCell.swift; sourceTree = "<group>"; };
 		E2B52727279495F3000F2E1C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		E2D7010B27981DA300855430 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				E2B5272527947F91000F2E1C /* AnimeTableViewCell.swift */,
 				E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */,
 				E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */,
+				E2D7010B27981DA300855430 /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				E2013A0327935EBA00DA2B71 /* AnimeTableViewController.swift in Sources */,
 				E2B52728279495F3000F2E1C /* DataManager.swift in Sources */,
 				E20139EC27935A6400DA2B71 /* SceneDelegate.swift in Sources */,
+				E2D7010C27981DA300855430 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
