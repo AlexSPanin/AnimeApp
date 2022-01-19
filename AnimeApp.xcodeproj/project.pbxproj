@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7E3BFA672C5599D7F773840 /* Pods_AnimeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98309DF72C37748279876A78 /* Pods_AnimeApp.framework */; };
 		E20139EA27935A6400DA2B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20139E927935A6400DA2B71 /* AppDelegate.swift */; };
 		E20139EC27935A6400DA2B71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20139EB27935A6400DA2B71 /* SceneDelegate.swift */; };
 		E20139F127935A6400DA2B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20139EF27935A6400DA2B71 /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2049E0FAA62F97BC1B9C1D65 /* Pods-AnimeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp.debug.xcconfig"; path = "Target Support Files/Pods-AnimeApp/Pods-AnimeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		98309DF72C37748279876A78 /* Pods_AnimeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA310342723A4CF0AB36E93F /* Pods-AnimeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp.release.xcconfig"; path = "Target Support Files/Pods-AnimeApp/Pods-AnimeApp.release.xcconfig"; sourceTree = "<group>"; };
 		E20139E627935A6400DA2B71 /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20139E927935A6400DA2B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E20139EB27935A6400DA2B71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,17 +47,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7E3BFA672C5599D7F773840 /* Pods_AnimeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37D20D5DF164A0B5D05DA931 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98309DF72C37748279876A78 /* Pods_AnimeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E27A2E76CBC9829CBAB3168 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2049E0FAA62F97BC1B9C1D65 /* Pods-AnimeApp.debug.xcconfig */,
+				AA310342723A4CF0AB36E93F /* Pods-AnimeApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E20139DD27935A6400DA2B71 = {
 			isa = PBXGroup;
 			children = (
 				E20139E827935A6400DA2B71 /* AnimeApp */,
 				E20139E727935A6400DA2B71 /* Products */,
+				7E27A2E76CBC9829CBAB3168 /* Pods */,
+				37D20D5DF164A0B5D05DA931 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E20139FA27935A6500DA2B71 /* Build configuration list for PBXNativeTarget "AnimeApp" */;
 			buildPhases = (
+				B68FB07673CBCC1598423EA6 /* [CP] Check Pods Manifest.lock */,
 				E20139E227935A6400DA2B71 /* Sources */,
 				E20139E327935A6400DA2B71 /* Frameworks */,
 				E20139E427935A6400DA2B71 /* Resources */,
+				3EA9C3D4F7343E765BC61E87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +225,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3EA9C3D4F7343E765BC61E87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnimeApp/Pods-AnimeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnimeApp/Pods-AnimeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnimeApp/Pods-AnimeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B68FB07673CBCC1598423EA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnimeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E20139E227935A6400DA2B71 /* Sources */ = {
@@ -356,6 +425,7 @@
 		};
 		E20139FB27935A6500DA2B71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2049E0FAA62F97BC1B9C1D65 /* Pods-AnimeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -384,6 +454,7 @@
 		};
 		E20139FC27935A6500DA2B71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA310342723A4CF0AB36E93F /* Pods-AnimeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
