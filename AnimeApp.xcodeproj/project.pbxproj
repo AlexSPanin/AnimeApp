@@ -16,9 +16,8 @@
 		E2013A0527935F1400DA2B71 /* TypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */; };
 		E25AD93F27936D0400F737B3 /* TypeAnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */; };
 		E2B5271C27942624000F2E1C /* Animes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5271B27942624000F2E1C /* Animes.swift */; };
-		E2B52720279432C3000F2E1C /* NetworkingManadgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */; };
+		E2B52720279432C3000F2E1C /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5271F279432C3000F2E1C /* NetworkingManager.swift */; };
 		E2B5272627947F91000F2E1C /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5272527947F91000F2E1C /* AnimeTableViewCell.swift */; };
-		E2B52728279495F3000F2E1C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B52727279495F3000F2E1C /* DataManager.swift */; };
 		E2D7010C27981DA300855430 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D7010B27981DA300855430 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +33,8 @@
 		E2013A0427935F1400DA2B71 /* TypeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewController.swift; sourceTree = "<group>"; };
 		E25AD93E27936D0400F737B3 /* TypeAnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAnimeCell.swift; sourceTree = "<group>"; };
 		E2B5271B27942624000F2E1C /* Animes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animes.swift; sourceTree = "<group>"; };
-		E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManadgerView.swift; sourceTree = "<group>"; };
+		E2B5271F279432C3000F2E1C /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		E2B5272527947F91000F2E1C /* AnimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewCell.swift; sourceTree = "<group>"; };
-		E2B52727279495F3000F2E1C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		E2D7010B27981DA300855430 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +70,6 @@
 			children = (
 				E20139FD27935A6E00DA2B71 /* ViewControllers */,
 				E20139FE27935AA400DA2B71 /* Model */,
-				E2D70109279816D000855430 /* DataManager */,
 				E20139FF27935AB200DA2B71 /* Services */,
 				E2013A0127935B0B00DA2B71 /* StoryBoards */,
 				E2D7010A2798174B00855430 /* SupportingFiles */,
@@ -104,7 +101,7 @@
 		E20139FF27935AB200DA2B71 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E2B5271F279432C3000F2E1C /* NetworkingManadgerView.swift */,
+				E2B5271F279432C3000F2E1C /* NetworkingManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -124,14 +121,6 @@
 				E20139F427935A6500DA2B71 /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoards;
-			sourceTree = "<group>";
-		};
-		E2D70109279816D000855430 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				E2B52727279495F3000F2E1C /* DataManager.swift */,
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		E2D7010A2798174B00855430 /* SupportingFiles */ = {
@@ -217,12 +206,11 @@
 			files = (
 				E2B5272627947F91000F2E1C /* AnimeTableViewCell.swift in Sources */,
 				E2013A0527935F1400DA2B71 /* TypeCollectionViewController.swift in Sources */,
-				E2B52720279432C3000F2E1C /* NetworkingManadgerView.swift in Sources */,
+				E2B52720279432C3000F2E1C /* NetworkingManager.swift in Sources */,
 				E20139EA27935A6400DA2B71 /* AppDelegate.swift in Sources */,
 				E2B5271C27942624000F2E1C /* Animes.swift in Sources */,
 				E25AD93F27936D0400F737B3 /* TypeAnimeCell.swift in Sources */,
 				E2013A0327935EBA00DA2B71 /* AnimeTableViewController.swift in Sources */,
-				E2B52728279495F3000F2E1C /* DataManager.swift in Sources */,
 				E20139EC27935A6400DA2B71 /* SceneDelegate.swift in Sources */,
 				E2D7010C27981DA300855430 /* DetailsViewController.swift in Sources */,
 			);

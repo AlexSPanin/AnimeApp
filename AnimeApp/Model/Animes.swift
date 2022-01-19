@@ -34,4 +34,5 @@ Favorite User: \(favoritesCount ?? 0)
 
 struct PosterImage: Decodable {
     let tiny: String?
+    let original: String?
 }

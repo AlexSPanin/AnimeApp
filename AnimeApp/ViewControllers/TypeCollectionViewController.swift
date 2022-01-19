@@ -25,8 +25,15 @@ class TypeCollectionViewController: UICollectionViewController {
         let url = linkViewAction[indexPath.item].rawValue
         
         cell.typeActionLabel.text = typeAction[indexPath.item].rawValue
-        NetworkingManadgerView.shared.fetchImageView(url: url) { image in
-            cell.typeActionView.image = image
+        
+        NetworkingManager.shared.fetchImage(url: url)  { result in
+            switch result {
+                
+            case .success(let data):
+                cell.typeActionView.image = UIImage(data: data)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
         return cell
     }
@@ -34,16 +41,19 @@ class TypeCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ colletionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let url = linkAction[indexPath.item].rawValue
-        performSegue(withIdentifier: "showAnime", sender: url)
+        performSegue(withIdentifier: "showAnime", sender: indexPath.item )
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = sender as? Int else { return }
+        let url = linkAction[indexPath].rawValue
+        let title = typeAction[indexPath].rawValue
+        
         let animeVC = segue.destination as! AnimeTableViewController
-        guard let url = sender as? String else { return }
         animeVC.fetchAnimes(url)
+        animeVC.title = title
     }
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     @IBOutlet var detailImage: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
     
@@ -16,7 +16,17 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = anime.attributes?.slug ?? ""
         descriptionLabel.text = anime.attributes?.synopsis ?? ""
+        
+        NetworkingManager.shared.fetchImage(url: anime.attributes?.posterImage?.original ?? "") { result in
+            switch result {
+            case .success(let data):
+                self.detailImage.image = UIImage(data: data)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

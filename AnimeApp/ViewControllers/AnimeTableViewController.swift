@@ -43,29 +43,20 @@ class AnimeTableViewController: UITableViewController {
     }
 }
 
-
-
 // MARK: - Networking
 
 extension AnimeTableViewController {
     func fetchAnimes(_ sender: String) {
-        guard let url = URL(string: sender) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print("Error Data")
-                return
-            }
-            do {
-                let anime = try JSONDecoder().decode(Animes.self, from: data)
-                self.animes = anime
+    
+        NetworkingManager.shared.fetchData(url: sender) { result in
+            switch result {
                 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            } catch {
+            case .success(let data):
+                self.animes = data
+                self.tableView.reloadData()
+            case .failure(let error):
                 print(error.localizedDescription)
             }
-        }.resume()
+        }
     }
 }

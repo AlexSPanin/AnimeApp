@@ -17,7 +17,6 @@ class AnimeTableViewCell: UITableViewCell {
                 
         TitleLabel.text = anime.title
         
-        
         DispatchQueue.global().async {
             guard let url = URL(string: anime.posterImage?.tiny ?? "" ) else { return }
             guard let imageData = try? Data(contentsOf: url) else { return }
