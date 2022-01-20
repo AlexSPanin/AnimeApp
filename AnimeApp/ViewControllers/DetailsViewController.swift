@@ -12,15 +12,15 @@ class DetailsViewController: UIViewController {
     @IBOutlet var detailImage: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
     
-    var anime: Anime!
+    var anime: Attribute!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = anime.attributes?.slug ?? ""
-        descriptionLabel.text = anime.attributes?.synopsis ?? ""
+        title = anime.slug ?? ""
+        descriptionLabel.text = anime.synopsis ?? ""
         
-        NetworkingManager.shared.fetchImage(url: anime.attributes?.posterImage?.original ?? "") { result in
+        NetworkingManager.shared.fetchImage(url: anime.posterImage?.original ?? "") { result in
             switch result {
             case .success(let data):
                 self.detailImage.image = UIImage(data: data)

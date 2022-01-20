@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum LinkView: String, CaseIterable {
     case tokyoViewURL = "https://picfiles.alphacoders.com/173/thumb-1920-173749.png"
@@ -15,7 +16,6 @@ enum LinkView: String, CaseIterable {
     case pikachuViewURL = "https://i.pinimg.com/736x/ec/d6/19/ecd61981c067f0710844ab6774dd76e2.jpg"
     case godzillaViewURL = "https://i.pinimg.com/736x/0a/ec/d0/0aecd09efcb71b4d2514037c18d421af--kaiju-godzilla-artwork.jpg"
 }
-
 enum Link: String, CaseIterable {
     case tokyoURL = "https://kitsu.io/api/edge/anime?filter[text]=tokyo"
     case adventuresURL = "https://kitsu.io/api/edge/anime?filter[text]=adventures"
@@ -24,7 +24,6 @@ enum Link: String, CaseIterable {
     case pikachuURL = "https://kitsu.io/api/edge/anime?filter[text]=pikachu"
     case godzillaURL = "https://kitsu.io/api/edge/anime?filter[text]=godzilla"
 }
-
 enum TypeAction: String, CaseIterable {
     case tokyo = "Tokyo"
     case adventures = "Adventures"
@@ -33,17 +32,17 @@ enum TypeAction: String, CaseIterable {
     case pikachu = "Pikachu"
     case godzilla = "Godzilla"
 }
-
 enum ErrorNetwork: Error {
     case errorURL
     case errorData
     case errorDecoding
 }
 
-
 class NetworkingManager {
     static var shared = NetworkingManager()
     private init() {}
+    
+    // MARK - Alamofire
     
     func fetchImage(url: String?, complition: @escaping(Result<Data, ErrorNetwork>) -> Void) {
         
@@ -65,25 +64,17 @@ class NetworkingManager {
     
     func fetchData(url: String?, complition: @escaping(Result<Animes, ErrorNetwork>) -> Void) {
         
-        guard let url = URL(string: url ?? "") else {
-            complition(.failure(.errorURL))
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                complition(.failure(.errorData))
-                return
-            }
-            do {
-                let anime = try JSONDecoder().decode(Animes.self, from: data)
-                DispatchQueue.main.async {
-                    complition(.success(anime))
+        AF.request(url ?? "")
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let animes = Animes.getAnimes(from: value)
+                    complition(.success(animes))
+                case .failure(_):
+                    complition(.failure(.errorDecoding))
                 }
-            } catch {
-                complition(.failure(.errorDecoding))
             }
-        }.resume()
     }
 }
 

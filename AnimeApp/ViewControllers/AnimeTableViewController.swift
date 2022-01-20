@@ -19,13 +19,13 @@ class AnimeTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        animes?.data?.count ?? 0
+        animes?.data?.attributes?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableViewCell
         
-        let anime = animes?.data?[indexPath.row]
+        let anime = animes?.data?.attributes?[indexPath.row]
         
         cell.configure(animes: anime)
         
@@ -36,8 +36,8 @@ class AnimeTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        guard let anime = animes?.data?[indexPath.row] else { return }
-       
+        guard let anime = animes?.data?.attributes?[indexPath.row] else { return }
+        
         let detailsVC = segue.destination as! DetailsViewController
         detailsVC.anime = anime
     }
@@ -47,10 +47,9 @@ class AnimeTableViewController: UITableViewController {
 
 extension AnimeTableViewController {
     func fetchAnimes(_ sender: String) {
-    
+        
         NetworkingManager.shared.fetchData(url: sender) { result in
             switch result {
-                
             case .success(let data):
                 self.animes = data
                 self.tableView.reloadData()

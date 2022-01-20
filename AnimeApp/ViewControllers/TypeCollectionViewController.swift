@@ -28,7 +28,6 @@ class TypeCollectionViewController: UICollectionViewController {
         
         NetworkingManager.shared.fetchImage(url: url)  { result in
             switch result {
-                
             case .success(let data):
                 cell.typeActionView.image = UIImage(data: data)
             case .failure(let error):
